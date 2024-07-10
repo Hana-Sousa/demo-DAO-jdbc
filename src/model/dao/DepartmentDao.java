@@ -1,6 +1,6 @@
-package dao;
+package model.dao;
 
-import model.entities.Department;
+import entities.Department;
 import java.util.List;
 
 public interface DepartmentDao {
