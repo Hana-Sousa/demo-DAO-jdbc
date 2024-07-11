@@ -20,30 +20,24 @@ public class Program2 {
         Department department = departmentDao.findById(3);
         System.out.println(department);
 
-//        System.out.println("\n==== Teste 2: seller findByDepartment ====");
-//        Department department = new Department(2, null);
-//        List<Seller> list = sellerDao.findByDepartment(department);
-//        for (Seller obj : list) {
-//            System.out.println(obj);
-//        }
+        System.out.println("\n==== Teste 2: seller findAll ====");
+        List<Department> list = departmentDao.findAll();
+        for (Department obj : list) {
+            System.out.println(obj);
+        }
 
-//        System.out.println("\n==== Teste 3: seller findAll ====");
-//        list = sellerDao.findAll();
-//        for (Seller obj : list) {
-//            System.out.println(obj);
-
-        System.out.println("\n==== Teste 4: department insert ====");
-        Department newDepartment = new Department( 10, "PE");
+        System.out.println("\n==== Teste 3: department insert ====");
+        Department newDepartment = new Department( 12, "Education");
         departmentDao.insert(newDepartment);
         System.out.println("Inserted! New Id = " + newDepartment.getId());
 
-        System.out.println("\n==== Teste 5: department update ====");
+        System.out.println("\n==== Teste 4: department update ====");
         department = departmentDao.findById(1);
         department.setName("Engineering");
         departmentDao.update(department);
         System.out.println("Update Completed");
 
-        System.out.println("\n==== Teste 6: department delete ====");
+        System.out.println("\n==== Teste 5: department delete ====");
         System.out.println("Enter id for delete test");
         int id = sc.nextInt();
         departmentDao.deleteById(id);
