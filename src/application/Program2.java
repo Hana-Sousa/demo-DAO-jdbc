@@ -6,11 +6,12 @@ import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 
 import java.util.List;
+import java.util.Scanner;
 
 
 public class Program2 {
     public static void main(String[] args) {
-
+        Scanner sc = new Scanner(System.in);
         DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
 
 
@@ -31,16 +32,24 @@ public class Program2 {
 //        for (Seller obj : list) {
 //            System.out.println(obj);
 
-        System.out.println("\n==== Teste 4: seller insert ====");
-        Department newDepartment = new Department( 9, "music");
+        System.out.println("\n==== Teste 4: department insert ====");
+        Department newDepartment = new Department( 10, "PE");
         departmentDao.insert(newDepartment);
         System.out.println("Inserted! New Id = " + newDepartment.getId());
 
-        System.out.println("\n==== Teste 5: seller update ====");
+        System.out.println("\n==== Teste 5: department update ====");
         department = departmentDao.findById(1);
         department.setName("Engineering");
         departmentDao.update(department);
         System.out.println("Update Completed");
+
+        System.out.println("\n==== Teste 6: department delete ====");
+        System.out.println("Enter id for delete test");
+        int id = sc.nextInt();
+        departmentDao.deleteById(id);
+        System.out.println("Delete completed");
+        sc.close();
+
     }
 
 
